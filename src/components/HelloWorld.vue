@@ -98,22 +98,24 @@ export default {
   methods: {
     async getCamPermission() {
       try {
-         const stream = await navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: true
-      })
-      const videoTracks = stream.getVideoTracks()
-      const track = videoTracks[0]
-      alert(`Getting video from: ${track.label}`)
-      document.querySelector('video').srcObject = stream
-      //The video stream is stopped by track.stop() after 3 second of playback.
-      setTimeout(() => { track.stop() }, 3 * 1000)
-    } catch (error) {
-      alert(`${error.name}`)
-      console.error(error)
-    }
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: false,
+          video: true,
+        });
+        const videoTracks = stream.getVideoTracks();
+        const track = videoTracks[0];
+        // alert(`Getting video from: ${track.label}`)
+        document.querySelector("video").srcObject = stream;
+        //The video stream is stopped by track.stop() after 3 second of playback.
+        setTimeout(() => {
+          track.stop();
+        }, 3 * 1000);
+      } catch (error) {
+        alert(`${error.name}`);
+        console.error(error);
+      }
+    },
   },
-  }
 };
 </script>
 
