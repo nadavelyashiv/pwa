@@ -106,7 +106,6 @@ export default {
       const track = videoTracks[0]
       alert(`Getting video from: ${track.label}`)
       document.querySelector('video').srcObject = stream
-      document.querySelector('#get-access').setAttribute('hidden', true)
       //The video stream is stopped by track.stop() after 3 second of playback.
       setTimeout(() => { track.stop() }, 3 * 1000)
     } catch (error) {
